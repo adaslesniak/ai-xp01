@@ -49,10 +49,10 @@ def _genarate_data_set(size):
 
 def _write_file(data, set_name):
     df = pd.DataFrame(data, columns=[f'm{i}' for i in range(1, 26)] + ['label'])
-    df.to_csv(f'{data_file_name}_{set_name}.csv', index=True)
+    df.to_csv(f'{data_file_name}_{set_name}.csv', index=False)
 
 
-def generate_data(training_data_size = 12000, test_data_size = 1000):
+def generate_data(training_data_size = 33000, test_data_size = 6000):
     matrices_hashes.clear()
     training_data = _genarate_data_set(training_data_size)
     _write_file(training_data, 'training')
@@ -63,10 +63,11 @@ def generate_data(training_data_size = 12000, test_data_size = 1000):
 
 def _load_data(set_name):
     data_file = f'{data_file_name}_{set_name}.csv'
-    data = pd.read_csv(data_file)
-    input = data.drop('label', axis=1).values
-    labels = data['label'].values
-    return input, labels
+    file_content = pd.read_csv(data_file)
+    data = file_content.drop('label', axis=1).values
+    labels = file_content['label'].values
+    print(f'file: {file_content.shape} - data: {data.shape} - labels: {labels.shape}')
+    return data, labels
 
 
 def load_training_data():
