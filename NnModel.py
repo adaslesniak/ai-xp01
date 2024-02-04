@@ -1,9 +1,7 @@
-import tensorflow as tf
-print(tf.__version__)  # Check TensorFlow version
-#print(tf.keras.__version__)  # Check Keras version integrated within TensorFlow
-
 from tensorflow.keras.models import Sequential
 from tensorflow.keras.layers import Dense
+from tensorflow.keras.optimizers import SGD
+
 
 def prepare_model():
     model = Sequential([
@@ -11,5 +9,8 @@ def prepare_model():
         Dense(64, activation='relu'),  # Second hidden layer with 64 neurons
         Dense(1, activation='sigmoid')  # Output layer with sigmoid activation for binary classification
     ])
-    model.compile(optimizer='adam', loss='binary_crossentropy', metrics=['accuracy'])
+    sgd_optimizer = SGD(lr=0.01, momentum=0.9)
+    model.compile(optimizer=sgd_optimizer, 
+                  loss='binary_crossentropy', 
+                  metrics=['accuracy'])
     return model
