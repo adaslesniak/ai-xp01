@@ -17,23 +17,32 @@ def _matrix_hash(matrix):
     return tuple(np.round(matrix, decimals=4).flatten())
 
 
-def _generate_unique_matrix():
+def _generate_unique_matrix(singular):
     while True:
-        another_matrix = np.random.rand(5, 5)
+        another_matrix = generate_matrix(singular)
         m_hash = _matrix_hash(another_matrix)
         if m_hash not in matrices_hashes:
             matrices_hashes.add(m_hash)
             return another_matrix
 
+def generate_matrix(singular=False):
+    r_matrix = np.random.rand(5, 5)
+    if not singular:
+        return r_matrix
+    else:
+        row_to_duplicate = np.random.randint(0, 5)
+        r_matrix[row_to_duplicate] = r_matrix[(row_to_duplicate + 1) % 5]  # Duplicate a row
+        return r_matrix
     
 def _genarate_data_set(size):
     ds = []
     for i in range(size): 
-        next = _generate_unique_matrix()
+        next = _generate_unique_matrix(i % 3 == 0)
         determinant = np.linalg.det(next)
         label = 1 if determinant != 0 else 0
         next_datum = next.flatten().tolist() + [label]
         ds.append(next_datum)
+    np.random.shuffle(ds)
     return ds
 
 
