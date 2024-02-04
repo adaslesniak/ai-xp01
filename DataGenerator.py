@@ -19,13 +19,13 @@ def _matrix_hash(matrix):
 
 def _generate_unique_matrix(singular):
     while True:
-        another_matrix = generate_matrix(singular)
+        another_matrix = _generate_matrix(singular)
         m_hash = _matrix_hash(another_matrix)
         if m_hash not in matrices_hashes:
             matrices_hashes.add(m_hash)
             return another_matrix
 
-def generate_matrix(singular=False):
+def _generate_matrix(singular=False):
     r_matrix = np.random.rand(5, 5)
     if not singular:
         return r_matrix
@@ -34,6 +34,7 @@ def generate_matrix(singular=False):
         r_matrix[row_to_duplicate] = r_matrix[(row_to_duplicate + 1) % 5]  # Duplicate a row
         return r_matrix
     
+
 def _genarate_data_set(size):
     ds = []
     for i in range(size): 
@@ -57,6 +58,23 @@ def generate_data(training_data_size = 12000, test_data_size = 1000):
     _write_file(training_data, 'training')
     test_data = _genarate_data_set(test_data_size)
     _write_file(test_data, 'test')
+    print('Data generated')
+
+
+def _load_data(set_name):
+    data_file = f'{data_file_name}_{set_name}.csv'
+    data = pd.read_csv(data_file)
+    input = data.drop('label', axis=1).values
+    labels = data['label'].values
+    return input, labels
+
+
+def load_training_data():
+    return _load_data('training')
+
+
+def load_test_data():
+    return _load_data('test')
 
 
 generate_data()

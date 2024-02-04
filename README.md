@@ -14,3 +14,12 @@ C) It's interesting problem how humans can do math, but all they have are their 
 AI as narrowed to Deep Learning can be understood as artificial intuition. So can we intuitively feel matrices. If this example fails, it will be point against doing lot of matrix calculations as my brain won't be able to grasp it intuitively anyway, so I'll always have to use computers. There is just no point in doing that manually. However if results are good, then... then it may get intersting.
 
 So I'll generate set of matrices with their determinants. Goal is to train NN to solve to intuitively feel if given matrix has determinant equal to zero.
+
+
+## requirements
+TODO: prepare proper file
+tensorflow
+tensorflow-cpu
+numpy
+pandas
+python3.11
