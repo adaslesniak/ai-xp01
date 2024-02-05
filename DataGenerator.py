@@ -52,7 +52,7 @@ def _write_file(data, set_name):
     df.to_csv(f'{data_file_name}_{set_name}.csv', index=False)
 
 
-def generate_data(training_data_size = 33000, test_data_size = 6000):
+def generate_data(training_data_size = 48000, test_data_size = 16000):
     matrices_hashes.clear()
     training_data = _genarate_data_set(training_data_size)
     _write_file(training_data, 'training')
