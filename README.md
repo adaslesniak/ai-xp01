@@ -15,9 +15,11 @@ AI as narrowed to Deep Learning can be understood as artificial intuition. So ca
 
 So I'll generate set of matrices with their determinants. Goal is to train NN to solve to intuitively feel if given matrix has determinant equal to zero.
 
+# Final thoughts
+Definitely neural network shouldn't be called algorithms as they are something really different and are bad at doing straight forward calcualtions. It could be expected as we humans are really bad at this. Maybe there is a way to get accuracy 100%, but it's way beyond simple excercise.
 
 ## requirements
-TODO: prepare proper file
+TODO: prepare proper requirements.txts
 tensorflow
 tensorflow-cpu
 numpy
