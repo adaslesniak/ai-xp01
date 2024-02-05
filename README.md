@@ -18,10 +18,5 @@ So I'll generate set of matrices with their determinants. Goal is to train NN to
 # Final thoughts
 Definitely neural network shouldn't be called algorithms as they are something really different and are bad at doing straight forward calcualtions. It could be expected as we humans are really bad at this. Maybe there is a way to get accuracy 100%, but it's way beyond simple excercise.
 
-## requirements
-TODO: prepare proper requirements.txts
-tensorflow
-tensorflow-cpu
-numpy
-pandas
-python3.11
+# Post scriptum
+Don't waste your time solving matrices calculations manually - you won't get much insight as they aren't terribly intuitive :p That was initial memory that pushed me to this experiment.

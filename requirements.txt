@@ -1,0 +1,7 @@
+python_version>=3.9,<3.12
+numpy==1.26
+pandas==2.2
+tensorflow==2.15
+
+# Depending on your hardware, you may need tensorflow-cpu instead.
+tensorflow-cpu==2.15
