@@ -5,11 +5,11 @@ from tensorflow.keras.optimizers import SGD
 
 def prepare_model():
     model = Sequential([
-        Dense(96, input_shape=(25,), activation='elu'),  # First hidden 
-        Dense(128, activation='elu'),  # Second hidden 
-        Dense(96, activation='elu'),  # Third hidden 
-        Dense(48, activation='elu'),  # Third hidden 
-        Dense(1, activation='sigmoid')  # Output for binary classification
+        Dense(96, input_shape=(25,), activation='relu'),  # First hidden 
+        Dense(128, activation='relu'),  # Second hidden 
+        Dense(96, activation='relu'),  # Third hidden 
+        Dense(48, activation='relu'),  # Third hidden 
+        Dense(1, activation='sigmoid')  # Output layer with sigmoid activation for binary classification
     ])
     sgd_optimizer = SGD(learning_rate=0.007, momentum=0.66)
     model.compile(optimizer=sgd_optimizer, 

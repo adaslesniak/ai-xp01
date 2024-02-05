@@ -7,7 +7,7 @@ def train():
     model = prepare_model()
     history = model.fit(training_data, 
                         training_labels, 
-                        epochs=48, batch_size=24, validation_split=0.16)
+                        epochs=88, batch_size=24, validation_split=0.16)
     print(history)
     return model
 
